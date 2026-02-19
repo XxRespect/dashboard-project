@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
-import "../globals.css";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "bmmsl",
-  description: "This website has been created for Management system of Bmmsl such as inventory,sales, bans appeals and more"
+  description:
+    "This website has been created for Management system of Bmmsl such as inventory,sales, bans appeals and more",
 };
 
 export default function RootLayout({
@@ -26,14 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" >
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex h-full w-full`}
-      >
-        <ThemeProvider attribute="class" defaultTheme="system" 
-        disableTransitionOnChange
-        enableSystem>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
-        </ThemeProvider>
       </body>
     </html>
   );
